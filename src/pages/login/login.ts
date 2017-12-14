@@ -16,7 +16,12 @@ import { LoginParams } from './login-params'
 })
 export class LoginPage {
 
+  user : LoginParams;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public al:AlertController) {
+
+    this.user = new LoginParams();
+
   }
 
   ionViewDidLoad() {
@@ -25,12 +30,12 @@ export class LoginPage {
   
   // @Input() login : LoginPage;
 
-  alert(name:string,pass:string){
+  alert(){
 
     let alert = this.al.create({
       title: 'WOW',
       subTitle: 'U R Logins',
-      message: name,
+      message: this.user.password,
       buttons: ['OK']
     });
     alert.present();
